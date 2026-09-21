@@ -34,6 +34,8 @@
 - **划分**：训练集 **105** 例，测试集 **51** 例。
 - **标签**：每个病例目录下含 `seg` 分割标签，但本项目为**无监督重建/生成模型**，训练与评估**不直接使用** seg 标签计算 Dice。
 - **分类标签**：四分类任务需要额外的 `tumor_labels.csv`（列：`case, type`，如 `Mets_001,Type_1`），供独立的肿瘤类型分类器使用。
+<img width="256" height="256" alt="t1_pre_z133" src="https://github.com/user-attachments/assets/8d01758f-314b-4b40-a1cb-d384f0348e77" />
+<img width="256" height="256" alt="t1_pre_z124" src="https://github.com/user-attachments/assets/63455979-ac67-49fb-a9e5-306b34664460" />
 
 ### 数据目录结构
 
