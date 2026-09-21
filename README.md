@@ -8,7 +8,8 @@
 
 > ⚠️ 本项目仅用于学术研究 / 算法演示，**不构成任何临床诊断或治疗建议**。
 
-88fbbfbd-86b8-4f9e-9203-9ab4adfd54db.png
+<img width="2500" height="886" alt="88fbbfbd-86b8-4f9e-9203-9ab4adfd54db" src="https://github.com/user-attachments/assets/37c6a98f-2f66-4e3b-9580-9dc35f6bab3d" />
+
 ---
 
 ## 目录
