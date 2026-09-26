@@ -5,6 +5,7 @@
 [![Paper](https://img.shields.io/badge/论文-中文手稿-blue)](#) [![ISBI](https://img.shields.io/badge/ISBI-单页摘要-green)](#) [![Repro](https://img.shields.io/badge/复算核对-PASS%20220%20%2F%20FAIL%200-brightgreen)](#9-复算与核验)
 
 贺晋羽 · GitHub: [@fgn2pyh2wn-afk](https://github.com/fgn2pyh2wn-afk)
+<img width="2500" height="886" alt="f24643c7921f1911e846a8cf656316fa" src="https://github.com/user-attachments/assets/f6705b76-e712-4096-9b48-85c0b9bce6c5" />
 
 ---
 
@@ -17,6 +18,7 @@
 **把"不能做什么"讲清楚，和把"能做什么"讲清楚同等重要。** 这是本项目的方法学主张。
 
 ---
+<img width="2500" height="886" alt="4e9a2a27f2ce2f24e32691faa55ff9b5" src="https://github.com/user-attachments/assets/9611bb74-4dc5-4672-8ea4-ee79dfdf4ebd" />
 
 ## 1. 主要结论
 
