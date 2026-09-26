@@ -28,10 +28,16 @@ SUP = str.maketrans('-0123456789', '⁻⁰¹²³⁴⁵⁶⁷⁸⁹')
 
 def paper_text(docx):
     raw = zipfile.ZipFile(docx).read('word/document.xml').decode('utf-8')
-    # 只匹配 <w:t> / <w:t xml:space="preserve">，不得匹配 <w:tbl>/<w:tc>/<w:tr>
-    txt = re.sub(r'<w:t(?: [^>]*)?>(.*?)</w:t>', lambda m: m.group(1), raw, flags=re.S)
-    txt = txt.replace('</w:p>', '\n').replace('</w:tc>', ' | ')
-    return html.unescape(txt)
+    # 只匹配 <w:t> / <w:t xml:space="preserve">，不得匹配 <w:tbl>/<w:tc>/<w:tr>；
+    # 先按段取出 <w:p> 再拼接段内全部 <w:t>，避免 Word 把一个数字切进多个 run 时漏检。
+    paras = re.findall(r'<w:p[ >].*?</w:p>', raw, flags=re.S)
+    out = []
+    for pr in paras:
+        txt = ''.join(re.findall(r'<w:t(?: [^>]*)?>(.*?)</w:t>', pr, flags=re.S))
+        if '<w:tc>' in pr:
+            txt += ' | '
+        out.append(html.unescape(txt))
+    return '\n'.join(out)
 
 
 def sci(x, sig=3):
@@ -100,6 +106,7 @@ def main():
     pil_rec = load_csv(PILOT / 'pilot_recon.csv')
     pil_aud = load_csv(PILOT / 'pilot_audit.csv')
     pil_loc = load_csv(PILOT / 'pilot_localization.csv')
+    pil51 = load_csv(PILOT / '试点51例_修复后指标_per_case.csv')
     dedup = json.loads((RES / '切片去重与口径核验.json').read_text(encoding='utf-8'))
     timing = json.loads((RES / '推理耗时实测.json').read_text(encoding='utf-8'))
 
@@ -355,6 +362,59 @@ def main():
     chk('§4.3 体积倍数范围下界', '7.5', min(vol_ratio), 0.05, '掩膜与专家标注对比_per_case.csv')
     chk('§4.3 体积倍数范围上界', '12887', max(vol_ratio), 0.5, '掩膜与专家标注对比_per_case.csv')
 
+    # ------------------------- §4.8 病灶内部指标（专家标注口径，105 例）与同口径替身复核
+    li = load_csv(RES / '病灶内部指标_105例_per_case.csv')
+    def ncol(rows, key):   # 去掉空病灶例产生的 NaN
+        return [v for v in col(rows, key) if np.isfinite(v)]
+    sa = load_csv(RES / '病灶内部替身审计_105例_per_case.csv')
+    chk('§4.8 带标注病例数', '105例', float(len(li)), 0.5, '病灶内部指标_105例_per_case.csv')
+    chk('§4.8 候选核/专家病灶体积倍数',
+        '125倍',
+        st.mean(ncol(li, 'core_brain_frac')) / st.mean(ncol(li, 'seg_brain_frac')),
+        0.5, '病灶内部指标_105例_per_case.csv')
+    chk('§4.8 专家病灶被候选核覆盖比例', '29.0%±33.8%', 100 * st.mean(ncol(li, 'recall_core_vs_seg')), 0.05,
+        '病灶内部指标_105例_per_case.csv')
+    chk('§4.8 候选核中确为病灶的比例', '0.37%±0.99%', 100 * st.mean(ncol(li, 'precision_core_vs_seg')), 0.005,
+        '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 候选核 平均灰度变化', ncol(li, 'paper_signed_change_core'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(三线性) 平均灰度变化', ncol(li, 'signed_change_seg'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(最大池化上界) 平均灰度变化', ncol(li, 'signed_change_segmax'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 候选核 纹理相关', ncol(li, 'texture_corr_core'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(三线性) 纹理相关', ncol(li, 'texture_corr_seg'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(最大池化上界) 纹理相关', ncol(li, 'texture_corr_segmax'), 4, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 候选核 外/内变化比', ncol(li, 'paper_ratio_core'), 3, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(三线性) 外/内变化比', ncol(li, 'ratio_seg'), 3, '病灶内部指标_105例_per_case.csv')
+    chk_sd('§4.8 专家病灶(最大池化上界) 外/内变化比', ncol(li, 'ratio_segmax'), 3, '病灶内部指标_105例_per_case.csv')
+    chk('§4.8 换区域后数值变化倍数',
+        '2.3倍',
+        st.mean(ncol(li, 'signed_change_seg')) / st.mean(ncol(li, 'paper_signed_change_core')),
+        0.05, '病灶内部指标_105例_per_case.csv')
+    # 同口径替身复核：7 种生成模块设置在 105 例上重跑
+    def by_variant(v, key):
+        return [float(r[key]) for r in sa if r['variant'] == v and np.isfinite(float(r[key]))]
+    KEY = [('平均灰度变化', 'seg_change'), ('平均绝对变化', 'seg_abs_change'),
+           ('外/内变化比', 'seg_ratio'), ('纹理相关', 'seg_texture')]
+    for lab, key in KEY:
+        a = np.array(by_variant('dit_seedA', key), dtype=float)
+        spread = []
+        for v in ('dit_seedB', 'frozen', 'shuffled', 'mean_latent'):
+            spread.append(float(np.max(np.abs(np.array(by_variant(v, key), dtype=float) - a))))
+        rec(f'§4.8 替身逐位相同 {lab}', '逐位相同', ('逐位相同' in PT) and float(max(spread)) == 0.0,
+            '病灶内部替身审计_105例_per_case.csv', f'代码 逐例跨设置最大差 {float(max(spread)):g}')
+    chk_sd('§4.8 替身审计 专家病灶平均灰度变化', by_variant('dit_seedA', 'seg_change'), 4, '病灶内部替身审计_105例_per_case.csv')
+    chk_sd('§4.8 替身审计 专家病灶平均绝对变化', by_variant('dit_seedA', 'seg_abs_change'), 5, '病灶内部替身审计_105例_per_case.csv')
+    chk_sd('§4.8 替身审计 专家病灶外/内变化比', by_variant('dit_seedA', 'seg_ratio'), 3, '病灶内部替身审计_105例_per_case.csv')
+    chk_sd('§4.8 替身审计 专家病灶纹理相关', by_variant('dit_seedA', 'seg_texture'), 4, '病灶内部替身审计_105例_per_case.csv')
+    chk('§4.8 替身-源图副本 专家病灶平均灰度变化', '−0.0417', st.mean(by_variant('identity', 'seg_change')), 5e-5,
+        '病灶内部替身审计_105例_per_case.csv')
+    chk('§4.8 替身-纯噪声 专家病灶平均灰度变化', '−0.0422', st.mean(by_variant('noise', 'seg_change')), 5e-5,
+        '病灶内部替身审计_105例_per_case.csv')
+    chk('§4.8 删掉生成后指标变化幅度/%',
+        '16%',
+        100 * (abs(st.mean(by_variant('dit_seedA', 'seg_change'))) - abs(st.mean(by_variant('identity', 'seg_change'))))
+        / abs(st.mean(by_variant('dit_seedA', 'seg_change'))),
+        0.5, '病灶内部替身审计_105例_per_case.csv')
+
     # ------------------------------------------- §3.1 切片动态范围（逐片满量程）
     chk('§3.1 t1_gd 切片总数', '23400', slice_rng['total'], 0.5, '切片动态范围统计.json')
     chk('§3.1 满量程切片数', '20844', slice_rng['full_range'], 0.5, '切片动态范围统计.json')
@@ -366,8 +426,16 @@ def main():
     chk_sd('§4.7 修复试点 整幅重建PSNR', col(pil_new, 'psnr_db'), 3, 'VAE重训试点/pilot_recon.csv')
     chk('§4.7 修复试点 解码输出标准差', '0.1447', st.mean(col(pil_new, 'rec_std')), 5e-5,
         'VAE重训试点/pilot_recon.csv')
-    chk('§4.7 修复试点 候选核内裁剪饱和比例', '34.98%',
-        100 * st.mean(col(pil_aud, 'sat_core_frozen')), 5e-3, 'VAE重训试点/pilot_audit.csv')
+    def var(rows, name, key):
+        """取 51 例同口径逐例表的某个替身路（variant）指标。"""
+        return [float(r[key]) for r in rows if r['variant'] == name]
+
+    chk('§4.7 修复试点 候选核内裁剪饱和比例（DiT 路，51 例）', '55.50%',
+        100 * st.mean(var(pil51, 'dit_seedA', 'sat08_core')), 5e-3,
+        'VAE重训试点/试点51例_修复后指标_per_case.csv')
+    chk('§4.7 修复试点 候选核内裁剪饱和比例（冻结采样路，51 例）', '36.37%',
+        100 * st.mean(var(pil51, 'frozen', 'sat08_core')), 5e-3,
+        'VAE重训试点/试点51例_修复后指标_per_case.csv')
     chk('§4.7 后处理后候选核内替身最大差', '0.0433',
         st.mean(col(pil_aud, 'fin_diff_core_pairwise_max')), 5e-5, 'VAE重训试点/pilot_audit.csv')
     chk('§4.7 修复后完整DiT核内裁剪前残差', '0.1329', st.mean(col(pil_loc, 'raw_core_full')), 5e-5,
