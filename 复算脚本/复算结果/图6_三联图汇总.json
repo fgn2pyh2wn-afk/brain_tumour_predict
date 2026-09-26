@@ -1,0 +1,41 @@
+{
+  "Mets_020": {
+    "seq_shape": [
+      151,
+      1,
+      64,
+      64,
+      64
+    ],
+    "soft_iou": 0.9680402278900146,
+    "texture_correlation": 0.9815793633460999,
+    "lesion_mean_change": -0.023150235414505005,
+    "seconds": 8.6
+  },
+  "Mets_049": {
+    "seq_shape": [
+      151,
+      1,
+      64,
+      64,
+      64
+    ],
+    "soft_iou": 0.9844523072242737,
+    "texture_correlation": 0.9805269241333008,
+    "lesion_mean_change": -0.02594691514968872,
+    "seconds": 8.6
+  },
+  "Mets_042": {
+    "seq_shape": [
+      151,
+      1,
+      64,
+      64,
+      64
+    ],
+    "soft_iou": 0.9873552918434143,
+    "texture_correlation": 0.9803386330604553,
+    "lesion_mean_change": -0.022858738899230957,
+    "seconds": 8.7
+  }
+}

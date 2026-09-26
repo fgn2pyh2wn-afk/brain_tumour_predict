@@ -1,0 +1,10 @@
+{
+ "modality": "t1_gd",
+ "root": "/Users/chris/Desktop/BRAINMETASTASIS",
+ "total": 23400,
+ "full_range": 20844,
+ "blank": 2556,
+ "other": [],
+ "full_range_fraction": 0.8907692307692308,
+ "blank_fraction": 0.10923076923076923
+}

@@ -1,0 +1,390 @@
+{
+ "dedup": {
+  "n_slices_hashed": 23400,
+  "slices_per_case": 150,
+  "same_name_pairs": 51,
+  "same_name_overlap_mean": 1.0,
+  "same_name_overlap_max": 1,
+  "within_train_pairs": 104,
+  "within_train_overlap_mean": 1.0,
+  "within_train_overlap_max": 1,
+  "within_test_pairs": 50,
+  "within_test_overlap_mean": 1.0,
+  "within_test_overlap_max": 1,
+  "pairs_with_full_overlap": 0,
+  "total_pairs": 205
+ },
+ "caliber": {
+  "cases": 51,
+  "vol_mse_mean": 0.026545242424689086,
+  "vol_mse_std": 0.008190348043572134,
+  "mean_all_slice_mse_mean": 0.026545242274083468,
+  "equal_check_max_abs_diff": 4.876455128588475e-09,
+  "informative_slice_mse_mean": 0.05284481269179606,
+  "informative_over_volume_ratio": 1.9907451529862987,
+  "psnr_per_case_mean": 15.993076871115301,
+  "psnr_per_case_std": 1.4967891339003354,
+  "psnr_pooled": 15.760133041060605,
+  "psnr_pooled_gap_db": 0.23294383005469577,
+  "psnr_informative_slice_mean": 13.127939694273115,
+  "per_case": [
+   {
+    "case": "Mets_001",
+    "vol_mse": 0.011309887282550335,
+    "mean_all_slice_mse": 0.01130988741376597,
+    "informative_slice_mse": 0.018808171153068542,
+    "slice_index": 30
+   },
+   {
+    "case": "Mets_002",
+    "vol_mse": 0.01267020870000124,
+    "mean_all_slice_mse": 0.012670209220139528,
+    "informative_slice_mse": 0.024084586650133133,
+    "slice_index": 29
+   },
+   {
+    "case": "Mets_003",
+    "vol_mse": 0.022223593667149544,
+    "mean_all_slice_mse": 0.02222359382164104,
+    "informative_slice_mse": 0.03761426359415054,
+    "slice_index": 36
+   },
+   {
+    "case": "Mets_004",
+    "vol_mse": 0.025656061246991158,
+    "mean_all_slice_mse": 0.025656060284548518,
+    "informative_slice_mse": 0.04821242019534111,
+    "slice_index": 32
+   },
+   {
+    "case": "Mets_005",
+    "vol_mse": 0.031192254275083542,
+    "mean_all_slice_mse": 0.031192256447436055,
+    "informative_slice_mse": 0.05177893117070198,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_006",
+    "vol_mse": 0.013519251719117165,
+    "mean_all_slice_mse": 0.01351925170240208,
+    "informative_slice_mse": 0.03828926756978035,
+    "slice_index": 24
+   },
+   {
+    "case": "Mets_007",
+    "vol_mse": 0.02328351140022278,
+    "mean_all_slice_mse": 0.02328351023754039,
+    "informative_slice_mse": 0.031473129987716675,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_008",
+    "vol_mse": 0.02166832983493805,
+    "mean_all_slice_mse": 0.02166833267228551,
+    "informative_slice_mse": 0.055813152343034744,
+    "slice_index": 28
+   },
+   {
+    "case": "Mets_009",
+    "vol_mse": 0.037494488060474396,
+    "mean_all_slice_mse": 0.03749448578134591,
+    "informative_slice_mse": 0.08866946399211884,
+    "slice_index": 23
+   },
+   {
+    "case": "Mets_010",
+    "vol_mse": 0.025857996195554733,
+    "mean_all_slice_mse": 0.025857995328069247,
+    "informative_slice_mse": 0.049406006932258606,
+    "slice_index": 30
+   },
+   {
+    "case": "Mets_011",
+    "vol_mse": 0.027002617716789246,
+    "mean_all_slice_mse": 0.027002619235520216,
+    "informative_slice_mse": 0.04349030554294586,
+    "slice_index": 38
+   },
+   {
+    "case": "Mets_012",
+    "vol_mse": 0.014767908491194248,
+    "mean_all_slice_mse": 0.014767909109792907,
+    "informative_slice_mse": 0.04018838703632355,
+    "slice_index": 25
+   },
+   {
+    "case": "Mets_013",
+    "vol_mse": 0.030793700367212296,
+    "mean_all_slice_mse": 0.030793701993526178,
+    "informative_slice_mse": 0.06832757592201233,
+    "slice_index": 26
+   },
+   {
+    "case": "Mets_014",
+    "vol_mse": 0.018510818481445312,
+    "mean_all_slice_mse": 0.01851081865929637,
+    "informative_slice_mse": 0.03274259343743324,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_015",
+    "vol_mse": 0.024147678166627884,
+    "mean_all_slice_mse": 0.02414767860655831,
+    "informative_slice_mse": 0.04352922365069389,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_016",
+    "vol_mse": 0.03271031752228737,
+    "mean_all_slice_mse": 0.032710318708105965,
+    "informative_slice_mse": 0.08785145729780197,
+    "slice_index": 27
+   },
+   {
+    "case": "Mets_017",
+    "vol_mse": 0.023717889562249184,
+    "mean_all_slice_mse": 0.023717890897649634,
+    "informative_slice_mse": 0.06587039679288864,
+    "slice_index": 24
+   },
+   {
+    "case": "Mets_018",
+    "vol_mse": 0.026095382869243622,
+    "mean_all_slice_mse": 0.026095382840736314,
+    "informative_slice_mse": 0.04361441358923912,
+    "slice_index": 36
+   },
+   {
+    "case": "Mets_019",
+    "vol_mse": 0.03391331434249878,
+    "mean_all_slice_mse": 0.03391331211500331,
+    "informative_slice_mse": 0.05483212694525719,
+    "slice_index": 38
+   },
+   {
+    "case": "Mets_020",
+    "vol_mse": 0.011990239843726158,
+    "mean_all_slice_mse": 0.011990239380764272,
+    "informative_slice_mse": 0.015567773953080177,
+    "slice_index": 35
+   },
+   {
+    "case": "Mets_021",
+    "vol_mse": 0.034797973930835724,
+    "mean_all_slice_mse": 0.034797976252579764,
+    "informative_slice_mse": 0.0637434870004654,
+    "slice_index": 32
+   },
+   {
+    "case": "Mets_022",
+    "vol_mse": 0.024950090795755386,
+    "mean_all_slice_mse": 0.024950089437125962,
+    "informative_slice_mse": 0.0487767830491066,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_023",
+    "vol_mse": 0.027312204241752625,
+    "mean_all_slice_mse": 0.027312204279824948,
+    "informative_slice_mse": 0.029994677752256393,
+    "slice_index": 41
+   },
+   {
+    "case": "Mets_024",
+    "vol_mse": 0.034105412662029266,
+    "mean_all_slice_mse": 0.034105412953784886,
+    "informative_slice_mse": 0.08378668874502182,
+    "slice_index": 24
+   },
+   {
+    "case": "Mets_025",
+    "vol_mse": 0.03723578155040741,
+    "mean_all_slice_mse": 0.037235784338062114,
+    "informative_slice_mse": 0.07271982729434967,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_026",
+    "vol_mse": 0.023639433085918427,
+    "mean_all_slice_mse": 0.023639432002438683,
+    "informative_slice_mse": 0.03637101501226425,
+    "slice_index": 34
+   },
+   {
+    "case": "Mets_027",
+    "vol_mse": 0.041194379329681396,
+    "mean_all_slice_mse": 0.04119438211142745,
+    "informative_slice_mse": 0.09731455147266388,
+    "slice_index": 29
+   },
+   {
+    "case": "Mets_028",
+    "vol_mse": 0.0251036137342453,
+    "mean_all_slice_mse": 0.025103613275120673,
+    "informative_slice_mse": 0.056359197944402695,
+    "slice_index": 29
+   },
+   {
+    "case": "Mets_029",
+    "vol_mse": 0.014294665306806564,
+    "mean_all_slice_mse": 0.014294665645095628,
+    "informative_slice_mse": 0.03019072860479355,
+    "slice_index": 31
+   },
+   {
+    "case": "Mets_030",
+    "vol_mse": 0.01698601059615612,
+    "mean_all_slice_mse": 0.016986010596482637,
+    "informative_slice_mse": 0.05352720618247986,
+    "slice_index": 23
+   },
+   {
+    "case": "Mets_031",
+    "vol_mse": 0.03465205803513527,
+    "mean_all_slice_mse": 0.03465205819094242,
+    "informative_slice_mse": 0.07135787606239319,
+    "slice_index": 27
+   },
+   {
+    "case": "Mets_032",
+    "vol_mse": 0.03286759927868843,
+    "mean_all_slice_mse": 0.03286760135152067,
+    "informative_slice_mse": 0.061055928468704224,
+    "slice_index": 35
+   },
+   {
+    "case": "Mets_033",
+    "vol_mse": 0.03552303463220596,
+    "mean_all_slice_mse": 0.035523029755750835,
+    "informative_slice_mse": 0.06745531409978867,
+    "slice_index": 35
+   },
+   {
+    "case": "Mets_034",
+    "vol_mse": 0.031596459448337555,
+    "mean_all_slice_mse": 0.03159646008813388,
+    "informative_slice_mse": 0.05441143363714218,
+    "slice_index": 37
+   },
+   {
+    "case": "Mets_035",
+    "vol_mse": 0.017215659841895103,
+    "mean_all_slice_mse": 0.017215660001972055,
+    "informative_slice_mse": 0.024305041879415512,
+    "slice_index": 35
+   },
+   {
+    "case": "Mets_036",
+    "vol_mse": 0.024605631828308105,
+    "mean_all_slice_mse": 0.024605630786358697,
+    "informative_slice_mse": 0.04924999549984932,
+    "slice_index": 27
+   },
+   {
+    "case": "Mets_037",
+    "vol_mse": 0.03508840873837471,
+    "mean_all_slice_mse": 0.03508841047261024,
+    "informative_slice_mse": 0.04380965232849121,
+    "slice_index": 38
+   },
+   {
+    "case": "Mets_038",
+    "vol_mse": 0.024558227509260178,
+    "mean_all_slice_mse": 0.0245582296393817,
+    "informative_slice_mse": 0.052825141698122025,
+    "slice_index": 29
+   },
+   {
+    "case": "Mets_039",
+    "vol_mse": 0.03581465035676956,
+    "mean_all_slice_mse": 0.03581464726710204,
+    "informative_slice_mse": 0.08989512920379639,
+    "slice_index": 23
+   },
+   {
+    "case": "Mets_040",
+    "vol_mse": 0.019363101571798325,
+    "mean_all_slice_mse": 0.019363099313647478,
+    "informative_slice_mse": 0.04669535160064697,
+    "slice_index": 25
+   },
+   {
+    "case": "Mets_041",
+    "vol_mse": 0.029846888035535812,
+    "mean_all_slice_mse": 0.029846885589868297,
+    "informative_slice_mse": 0.059534817934036255,
+    "slice_index": 30
+   },
+   {
+    "case": "Mets_042",
+    "vol_mse": 0.04001298174262047,
+    "mean_all_slice_mse": 0.04001298032133613,
+    "informative_slice_mse": 0.07866130769252777,
+    "slice_index": 27
+   },
+   {
+    "case": "Mets_043",
+    "vol_mse": 0.0210808627307415,
+    "mean_all_slice_mse": 0.021080863027201358,
+    "informative_slice_mse": 0.04643711820244789,
+    "slice_index": 33
+   },
+   {
+    "case": "Mets_044",
+    "vol_mse": 0.035958386957645416,
+    "mean_all_slice_mse": 0.03595838490015292,
+    "informative_slice_mse": 0.09936708211898804,
+    "slice_index": 23
+   },
+   {
+    "case": "Mets_045",
+    "vol_mse": 0.026194952428340912,
+    "mean_all_slice_mse": 0.02619495060270017,
+    "informative_slice_mse": 0.03316451236605644,
+    "slice_index": 38
+   },
+   {
+    "case": "Mets_046",
+    "vol_mse": 0.0284423828125,
+    "mean_all_slice_mse": 0.028442381889353663,
+    "informative_slice_mse": 0.04156603664159775,
+    "slice_index": 40
+   },
+   {
+    "case": "Mets_047",
+    "vol_mse": 0.013809897936880589,
+    "mean_all_slice_mse": 0.013809898313839466,
+    "informative_slice_mse": 0.02730252407491207,
+    "slice_index": 31
+   },
+   {
+    "case": "Mets_048",
+    "vol_mse": 0.039082612842321396,
+    "mean_all_slice_mse": 0.039082608413254435,
+    "informative_slice_mse": 0.08198432624340057,
+    "slice_index": 32
+   },
+   {
+    "case": "Mets_049",
+    "vol_mse": 0.022972019389271736,
+    "mean_all_slice_mse": 0.022972018009451187,
+    "informative_slice_mse": 0.05029856786131859,
+    "slice_index": 27
+   },
+   {
+    "case": "Mets_050",
+    "vol_mse": 0.02000710926949978,
+    "mean_all_slice_mse": 0.020007108933984392,
+    "informative_slice_mse": 0.028684884309768677,
+    "slice_index": 36
+   },
+   {
+    "case": "Mets_051",
+    "vol_mse": 0.03696942329406738,
+    "mean_all_slice_mse": 0.03696942376162448,
+    "informative_slice_mse": 0.0740755945444107,
+    "slice_index": 34
+   }
+  ]
+ }
+}
