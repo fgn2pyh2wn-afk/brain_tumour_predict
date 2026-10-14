@@ -2,6 +2,7 @@
 
 **From a Single Scan to a Trajectory: Two-Stage Latent Diffusion for Controllable Local Progression Synthesis of Brain Metastases**
 [![Paper](https://img.shields.io/badge/论文-中文手稿-blue)](#) [![ISBI](https://img.shields.io/badge/ISBI-单页摘要-green)](#) [![Repro](https://img.shields.io/badge/复算核对-PASS%20220%20%2F%20FAIL%200-brightgreen)](#9-复算与核验)
+<img width="2325" height="789" alt="6ae34af8df09c0c72be25c82fb55fb34" src="https://github.com/user-attachments/assets/9f9eec31-518e-4424-ac3d-555368b24850" />
 
 贺晋羽 · GitHub: [@fgn2pyh2wn-afk](https://github.com/fgn2pyh2wn-afk)
 <img width="2500" height="886" alt="f24643c7921f1911e846a8cf656316fa" src="https://github.com/user-attachments/assets/f6705b76-e712-4096-9b48-85c0b9bce6c5" />
