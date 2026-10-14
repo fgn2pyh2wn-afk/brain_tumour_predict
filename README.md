@@ -1,7 +1,6 @@
 # 从单帧到轨迹：脑转移瘤局部进展的两阶段潜空间扩散可控合成
 
 **From a Single Scan to a Trajectory: Two-Stage Latent Diffusion for Controllable Local Progression Synthesis of Brain Metastases**
-
 [![Paper](https://img.shields.io/badge/论文-中文手稿-blue)](#) [![ISBI](https://img.shields.io/badge/ISBI-单页摘要-green)](#) [![Repro](https://img.shields.io/badge/复算核对-PASS%20220%20%2F%20FAIL%200-brightgreen)](#9-复算与核验)
 
 贺晋羽 · GitHub: [@fgn2pyh2wn-afk](https://github.com/fgn2pyh2wn-afk)
