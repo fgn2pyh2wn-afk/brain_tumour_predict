@@ -1,6 +1,4 @@
 [README.md](https://github.com/user-attachments/files/33765805/README.md)
-# 从单帧到轨迹：脑转移瘤局部进展的两阶段潜空间扩散可控合成
-
 **From a Single Scan to a Trajectory: Two-Stage Latent Diffusion for Controllable Local Progression Synthesis of Brain Metastases**
 [![Paper](https://img.shields.io/badge/论文-中文手稿-blue)](#) [![I# Brain Metastasis Progression Synthesis with a Lightweight Latent Diffusion Transformer
 
