@@ -3,7 +3,6 @@
 # From a Single Scan to a Trajectory: Two-Stage Latent Diffusion for Controllable Local Progression Synthesis of Brain Metastases
 
 [![Paper](https://img.shields.io/badge/论文-中文手稿-blue)](#) [![I# Brain Metastasis Progression Synthesis with a Lightweight Latent Diffusion Transformer
-
 **From a single T1-Gd scan to a bounded, reproducible 3D progression sequence.**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
@@ -18,11 +17,9 @@ metastasis from a **single T1-Gd MRI volume**. The pipeline is deliberately smal
 10M trainable parameters in total — and is designed for **resource-constrained research settings**:
 it trains in seconds per epoch on one commodity GPU, runs on Apple Silicon during development, and
 writes standard NIfTI volumes that free viewers can open.
-
-> **Research use only.** This is not a medical device and must not be used for diagnosis, treatment
+ **Research use only.** This is not a medical device and must not be used for diagnosis, treatment
 > planning, or any clinical decision. See [Intended Use and Limitations](#intended-use-and-limitations).
-
----
+<img width="2325" height="789" alt="6ae34af8df09c0c72be25c82fb55fb34" src="https://github.com/user-attachments/assets/9f9eec31-518e-4424-ac3d-555368b24850" />>---
 
 ## Table of Contents
 
@@ -403,7 +400,7 @@ If you use this code or the generated sequences, please cite:
 
 **Contact:** open an issue on GitHub for questions about the code or reproduction.
 SBI](https://img.shields.io/badge/ISBI-单页摘要-green)](#) [![Repro](https://img.shields.io/badge/复算核对-PASS%20220%20%2F%20FAIL%200-brightgreen)](#9-复算与核验)
-<img width="2325" height="789" alt="6ae34af8df09c0c72be25c82fb55fb34" src="https://github.com/user-attachments/assets/9f9eec31-518e-4424-ac3d-555368b24850" />
+
 
 贺晋羽 · GitHub: [@fgn2pyh2wn-afk](https://github.com/fgn2pyh2wn-afk)
 <img width="2500" height="886" alt="f24643c7921f1911e846a8cf656316fa" src="https://github.com/user-attachments/assets/f6705b76-e712-4096-9b48-85c0b9bce6c5" />
